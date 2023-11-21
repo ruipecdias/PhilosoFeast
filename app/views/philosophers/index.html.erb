@@ -1,0 +1,30 @@
+<h1>Philosophers</h1>
+
+<% if @philosophers.empty? %>
+  <p>No philosophers available at the moment.</p>
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Location</th>
+        <th>Specialization</th>
+        <!-- Add more headers based on the philosopher attributes you want to display -->
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @philosophers.each do |philosopher| %>
+        <tr>
+          <td><%= philosopher.user.username %></td>
+          <td><%= philosopher.age %></td>
+          <td><%= philosopher.location %></td>
+          <td><%= philosopher.preferred_topic %></td>
+          <!-- Add more cells based on the philosopher attributes you want to display -->
+          <td><%= link_to 'View', philosopher_path(philosopher) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
