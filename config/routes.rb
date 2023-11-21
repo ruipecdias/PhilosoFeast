@@ -11,5 +11,6 @@ Rails.application.routes.draw do
   # root "posts#index"
   resources :users, only: [:show, :edit, :update] do
     resources :dinners, only: [:index, :new, :create]
+    resources :philosophers
   end
 end
