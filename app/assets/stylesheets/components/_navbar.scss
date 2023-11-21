@@ -1,12 +1,16 @@
 .navbar {
-  background-color: #EADBC8;
+  background-color: rgb(24, 24, 24);
   overflow: hidden;
   padding: 25px;
 }
 
 h1 {
-  color: #0F2C59;
+  color: black;
   font-size: 200%;
+}
+
+.logo {
+  width: 200px;
 }
 
 // .navbar-lewagon .navbar-collapse {
