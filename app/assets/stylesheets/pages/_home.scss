@@ -1,1 +1,23 @@
 // Specific CSS for your home-page
+body {
+  background-color: #F8F0E5;
+  background-image: url("https://cdn.discordapp.com/attachments/1008571126177345636/1176500608124063764/antocorr_portuguese_guy_from_2023_wearing_a_black_blazer_hes_ha_6af7176d-abcb-4dfe-b70f-ec8c11fbe294.png?ex=656f1893&is=655ca393&hm=bad9c014a4c273fe08781ec51563ed76ae2b8e8a010953424b4623caf0aab009&");
+  background-size: cover; /* Set the background size to cover the container */
+  background-position: 75% 25%;; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent the background image from repeating */
+}
+
+.container {
+  padding: 50px 0 50px;
+}
+
+h2 {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 400%;
+}
+
+p {
+  color: white;
+}
