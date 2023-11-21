@@ -1,0 +1,8 @@
+<h1><%= @philosopher.name %></h1>
+<p>Age: <%= @philosopher.age %></p>
+<p>Location: <%= @philosopher.location %></p>
+<p>Bio: <%= @philosopher.bio %></p>
+<!-- Add more philosopher details as needed -->
+
+<%= link_to 'Edit', edit_philosopher_path(@philosopher) %>
+<%= link_to 'Back to List', philosophers_path %>
