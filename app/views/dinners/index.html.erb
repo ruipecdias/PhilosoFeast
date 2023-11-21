@@ -1,0 +1,11 @@
+<h1>These are my dinners</h1>
+<% @dinners.each do |dinner| %>
+  <div class="co-12 col-sm-6 col-md-4 mb-3">
+    <%= link_to dinner_path(dinner), class:"text-decoration-none" do %>
+      <div class="card-category" data-aos="zoom-in">
+        <p>Your dinner between you and<%= dinner.philosopher.name%> will happen on this date:<%= dinner.date %></p>
+        <p>The status of this dinner is:<%= dinner.status %></p>
+      </div>
+    <% end %>
+  </div>
+<% end %>
