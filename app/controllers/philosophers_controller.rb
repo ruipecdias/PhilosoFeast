@@ -9,6 +9,7 @@ class PhilosophersController < ApplicationController
     # GET /philosophers/:id
     def show
       # The view will display the details of the philosopher
+      @philosopher = Philosopher.find(params[:id])
     end
   
     # GET /philosophers/new
