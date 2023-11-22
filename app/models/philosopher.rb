@@ -9,7 +9,7 @@ class Philosopher < ApplicationRecord
   private
 
   def sanitize_address
-    self.address = address.strip
+    self.location = location.strip
     # self.address = address.gsub(/[^0-9A-Za-z]/, '')
   end
 end
