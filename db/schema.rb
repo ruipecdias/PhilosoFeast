@@ -10,18 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_21_162240) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_22_123310) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "dinners", force: :cascade do |t|
     t.integer "philosopher_id"
     t.integer "user_id"
-    t.integer "lenght"
+    t.integer "length"
     t.integer "status"
     t.datetime "date", precision: nil
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "credit_card"
   end
 
   create_table "philosophers", force: :cascade do |t|
@@ -49,7 +50,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_21_162240) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "credit_card"
     t.string "image_url"
     t.boolean "philosopher"
     t.string "username"
