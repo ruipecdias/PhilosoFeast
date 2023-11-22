@@ -5,13 +5,15 @@
     <% @philosophers.each do |philosopher| %>
       <div class="philosopher-card">
         <h4><%= philosopher.user.username %></h4>
-        <p>Age: <%= philosopher.age %></p>
-        <p>Location: <%= philosopher.location %></p>
-        <p>Specialization: <%= philosopher.preferred_topic %></p>
+        <div class="philosopher-info">
+        <%= image_tag philosopher.user.image_url, alt: "Image of #{philosopher.user.username}", width: "100"%>
+        <p><strong>Age:</strong> <%= philosopher.age %></p>
+        <p><strong>Location:</strong> <%= philosopher.location %></p>
+        <p><strong>Specialization:</strong> <%= philosopher.preferred_topic %></p>
         <!-- Add more content based on the philosopher attributes you want to display -->
-        <%= link_to 'View', philosopher_path(philosopher), class: 'button' %>
+        <%= link_to 'Read more...', philosopher_path(philosopher), class: 'button' %>
+        </div>
       </div>
     <% end %>
   </div>
-
 <% end %>
