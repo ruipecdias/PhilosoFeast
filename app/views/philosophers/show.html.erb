@@ -1,4 +1,5 @@
 <h1><%= @philosopher.user.username %></h1>
+<td><%= image_tag @philosopher.user.image_url, alt: "Image of #{@philosopher.user.username}", width: "100" %></td>
 <p>Age: <%= @philosopher.age %></p>
 <p>Location: <%= @philosopher.location %></p>
 <p>Bio: <%= @philosopher.bio %></p>
@@ -11,4 +12,6 @@
 <p>Communication Style: <%= @philosopher.communication_style %></p>
 
 <!-- Add more philosopher details as needed -->
-<%= link_to 'Back to List', philosophers_path %>
+<%= link_to 'Back to List', philosophers_path, class: "btn btn-primary" %>
+
+
