@@ -10,8 +10,7 @@ philosopher_users = []
     password: Faker::Internet.password,
     philosopher: true,
     username: Faker::Internet.username,
-    image_url: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Aristotle_Altemps_Inv8575.jpg",
-    credit_card: Faker::Finance.credit_card
+    image_url: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Aristotle_Altemps_Inv8575.jpg"
   )
 end
 
@@ -91,47 +90,51 @@ users = []
     email: Faker::Internet.email,
     password: Faker::Internet.password,
     philosopher: false, username: Faker::Internet.username,
-    image_url:"https://upload.wikimedia.org/wikipedia/commons/a/ae/Aristotle_Altemps_Inv8575.jpg",
-    credit_card: Faker::Finance.credit_card
+    image_url:"https://upload.wikimedia.org/wikipedia/commons/a/ae/Aristotle_Altemps_Inv8575.jpg"
   )
 end
 
 Dinner.create!(
   philosopher: philosopher_users[0].philosophers.first,
   user: users[0],
-  lenght: 1,
+  length: 1,
   status: 1,
-  date: "2021-11-21 15:45:57"
+  date: "2021-11-21 15:45:57",
+  credit_card: Faker::Finance.credit_card
 )
 
 Dinner.create!(
   philosopher: philosopher_users[1].philosophers.first,
   user: users[1],
-  lenght: 1,
+  length: 1,
   status: 1,
-  date: "2021-11-21 15:45:57"
+  date: "2021-11-21 15:45:57",
+  credit_card: Faker::Finance.credit_card
 )
 
 Dinner.create!(
   philosopher: philosopher_users[2].philosophers.first,
   user: users[2],
-  lenght: 1,
+  length: 1,
   status: 1,
-  date: "2021-11-21 15:45:57"
+  date: "2021-11-21 15:45:57",
+  credit_card: Faker::Finance.credit_card
 )
 
 Dinner.create!(
   philosopher: philosopher_users[3].philosophers.first,
   user: users[3],
-  lenght: 1,
+  length: 1,
   status: 1,
-  date: "2021-11-21 15:45:57"
+  date: "2021-11-21 15:45:57",
+  credit_card: Faker::Finance.credit_card
 )
 
 Dinner.create!(
   philosopher: philosopher_users[4].philosophers.first,
   user: users[4],
-  lenght: 1,
+  length: 1,
   status: 1,
-  date: "2021-11-21 15:45:57"
+  date: "2021-11-21 15:45:57",
+  credit_card: Faker::Finance.credit_card
 )
