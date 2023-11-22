@@ -8,6 +8,7 @@ class PhilosophersController < ApplicationController
         {
           lat: philosopher.latitude,
           lng: philosopher.longitude
+          
         }
       end
     end
