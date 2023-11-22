@@ -10,6 +10,6 @@ class Philosopher < ApplicationRecord
 
   def sanitize_address
     self.address = address.strip
-    # seld.address = address.gsub(/[^0-9A-Za-z]/, '')
+    # self.address = address.gsub(/[^0-9A-Za-z]/, '')
   end
 end
