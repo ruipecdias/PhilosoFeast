@@ -4,6 +4,12 @@ class PhilosophersController < ApplicationController
     # GET /philosophers
     def index
       @philosophers = Philosopher.all
+      @markers = @philosophers.geocoded.map do |philosopher|
+        {
+          lat: philosopher.latitude,
+          lng: philosopher.longitude
+        }
+      end
     end
 
     # GET /philosophers/:id
