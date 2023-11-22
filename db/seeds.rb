@@ -4,14 +4,17 @@ User.destroy_all
 
 # the lines below creates 10 users ( 5 with a philosopher profile and 5 without a philosopher profile)
 philosopher_users = []
+philo_names = ['Aristotle', 'Plato', 'Descartes', 'Marx', 'José Socrates']
+i = 0
 5.times do
   philosopher_users << User.create!(
     email: Faker::Internet.email,
     password: Faker::Internet.password,
     philosopher: true,
-    username: Faker::Internet.username,
+    username: philo_names[0 + i],
     image_url: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Aristotle_Altemps_Inv8575.jpg"
   )
+  i += 1
 end
 
 Philosopher.create!(

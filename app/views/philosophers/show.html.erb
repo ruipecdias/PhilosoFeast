@@ -2,6 +2,9 @@
   <h4><%= @philosopher.user.username %></h4>
 </div>
 <div class="philosopher-flex">
+  <div class="philosopher-avatar">
+    <td><%= image_tag @philosopher.user.image_url, alt: "Image of #{@philosopher.user.username}", height: "450" %></td>
+  </div>
   <div class="philosopher-description">
     <p><strong>Age:</strong> <%= @philosopher.age %></p>
     <p><strong>Location:</strong> <%= @philosopher.location %></p>
@@ -13,19 +16,21 @@
     <p><strong>Philosophical Focus:</strong> <%= @philosopher.philosophical_focus %></p>
     <p><strong>Dress Code:</strong> <%= @philosopher.dress_code %></p>
     <p><strong>Communication Style:</strong> <%= @philosopher.communication_style %></p>  </div>
-  <div class="philosopher-avatar">
-    <td><%= image_tag @philosopher.user.image_url, alt: "Image of #{@philosopher.user.username}", width: "300" %></td>
+  <div style="width: 700px; height: 450px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
 </div>
 
 <div class="myform">
-<h4>Book a dinner with <%= @philosopher.user.username %></h4>
-<%= simple_form_for [@philosopher, @dinner] do |f| %>
-  <%= f.input :date, as: :string %>
-  <%= f.input :credit_card %>
-  <%= f.input :length, collection: 1..5, label: 'Dinner duration (hours)' %>
-  <%= f.button :submit, "Confirm Booking", class: "custom-button" %>
-<% end %>
-<br>
-<%= link_to 'Back to List', philosophers_path%>
-
+  <h4>Book a dinner with <%= @philosopher.user.username %></h4>
+  <%= simple_form_for [@philosopher, @dinner] do |f| %>
+    <%= f.input :date, as: :string %>
+    <%= f.input :credit_card %>
+    <%= f.input :length, collection: 1..5, label: 'Dinner duration (hours)' %>
+    <%= f.button :submit, "Confirm Booking", class: "custom-button" %>
+  <% end %>
+  <br>
+  <%= link_to 'Back to List', philosophers_path%>
+</div>
