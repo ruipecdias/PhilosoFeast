@@ -1,30 +1,17 @@
-<h1>Philosophers</h1>
-
 <% if @philosophers.empty? %>
   <p>No philosophers available at the moment.</p>
 <% else %>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Age</th>
-        <th>Location</th>
-        <th>Specialization</th>
-        <!-- Add more headers based on the philosopher attributes you want to display -->
-      </tr>
-    </thead>
+  <div class="philosophers-container">
+    <% @philosophers.each do |philosopher| %>
+      <div class="philosopher-card">
+        <h4><%= philosopher.user.username %></h4>
+        <p>Age: <%= philosopher.age %></p>
+        <p>Location: <%= philosopher.location %></p>
+        <p>Specialization: <%= philosopher.preferred_topic %></p>
+        <!-- Add more content based on the philosopher attributes you want to display -->
+        <%= link_to 'View', philosopher_path(philosopher), class: 'button' %>
+      </div>
+    <% end %>
+  </div>
 
-    <tbody>
-      <% @philosophers.each do |philosopher| %>
-        <tr>
-          <td><%= philosopher.user.username %></td>
-          <td><%= philosopher.age %></td>
-          <td><%= philosopher.location %></td>
-          <td><%= philosopher.preferred_topic %></td>
-          <!-- Add more cells based on the philosopher attributes you want to display -->
-          <td><%= link_to 'View', philosopher_path(philosopher) %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
 <% end %>

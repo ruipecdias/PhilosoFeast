@@ -1,2 +1,34 @@
 // Import page-specific CSS files here.
 @import "home";
+
+h1 {
+  color: white;
+  font-family: 'Anek Malayalam', sans-serif;
+  font-size: 200%;
+}
+
+.philosopher-card {
+  background-color: rgb(208, 192, 169);
+  padding: 20px;
+  border-radius: 5px;
+  width: 300px;
+  margin-top: 25px;
+}
+
+.philosophers-container {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(20px, 1fr));
+  margin-left: 50px;
+}
+
+@media (max-width: 768px) {
+  .philosophers-container {
+    grid-template-columns: repeat(2, minmax(20px, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  .philosophers-container {
+    grid-template-columns: repeat(1, minmax(20px, 1fr));
+  }
+}
