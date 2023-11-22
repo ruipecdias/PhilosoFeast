@@ -18,6 +18,7 @@ h1 {
 h4 {
   color: rgb(34, 34, 34);
   font-weight: bold;
+  font-size: 150%;
 }
 
 .philosophers-container {
@@ -34,6 +35,11 @@ h4 {
   font-size: larger;
 }
 
+.philosopher-name {
+  background-color: #cbcbcb;
+  padding: 25px;
+}
+
 @media (max-width: 768px) {
   .philosophers-container {
     grid-template-columns: repeat(2, minmax(20px, 1fr));
@@ -44,4 +50,22 @@ h4 {
   .philosophers-container {
     grid-template-columns: repeat(1, minmax(20px, 1fr));
   }
+}
+
+.philosopher-flex {
+  display: flex;
+  align-items: center;
+}
+
+.philosopher-description {
+  flex: 1;
+  margin: 25px;
+}
+
+.philosopher-avatar {
+  margin-left: auto;
+}
+
+.myform {
+  margin: 25px;
 }
