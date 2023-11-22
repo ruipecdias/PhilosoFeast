@@ -1,17 +1,25 @@
-<h1><%= @philosopher.user.username %></h1>
-<td><%= image_tag @philosopher.user.image_url, alt: "Image of #{@philosopher.user.username}", width: "100" %></td>
-<p>Age: <%= @philosopher.age %></p>
-<p>Location: <%= @philosopher.location %></p>
-<p>Bio: <%= @philosopher.bio %></p>
-<p>Availability: <%= @philosopher.availability %></p>
-<p>Price: <%= @philosopher.price_per_hour %></p>
-<p>Language: <%= @philosopher.language %></p>
-<p>Prefered Topic: <%= @philosopher.preferred_topic %></p>
-<p>Philosophical Focus: <%= @philosopher.philosophical_focus %></p>
-<p>Dress Code: <%= @philosopher.dress_code %></p>
-<p>Communication Style: <%= @philosopher.communication_style %></p>
+<div class="philosopher-name">
+  <h4><%= @philosopher.user.username %></h4>
+</div>
+<div class="philosopher-flex">
+  <div class="philosopher-description">
+    <p><strong>Age:</strong> <%= @philosopher.age %></p>
+    <p><strong>Location:</strong> <%= @philosopher.location %></p>
+    <p><strong>Bio:</strong> <%= @philosopher.bio %></p>
+    <p><strong>Availability:</strong> <%= @philosopher.availability %></p>
+    <p><strong>Price:</strong> <%= @philosopher.price_per_hour %></p>
+    <p><strong>Language:</strong> <%= @philosopher.language %></p>
+    <p><strong>Prefered Topic:</strong> <%= @philosopher.preferred_topic %></p>
+    <p><strong>Philosophical Focus:</strong> <%= @philosopher.philosophical_focus %></p>
+    <p><strong>Dress Code:</strong> <%= @philosopher.dress_code %></p>
+    <p><strong>Communication Style:</strong> <%= @philosopher.communication_style %></p>  </div>
+  <div class="philosopher-avatar">
+    <td><%= image_tag @philosopher.user.image_url, alt: "Image of #{@philosopher.user.username}", width: "300" %></td>
+  </div>
+</div>
 
-<!-- Add more philosopher details as needed -->
+<div class="myform">
+<h4>Book a dinner with <%= @philosopher.user.username %>!</h4>
 <%= simple_form_for [@philosopher, @dinner] do |f| %>
   <%= f.input :date, as: :string %>
   <%= f.input :credit_card %>
@@ -26,3 +34,4 @@ d
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 
 <%= link_to 'Back to List', philosophers_path, class: "btn btn-primary" %>
+</div>
