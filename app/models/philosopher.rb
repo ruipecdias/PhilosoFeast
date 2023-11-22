@@ -5,4 +5,11 @@ class Philosopher < ApplicationRecord
   has_many :dinners
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
+  before_save :sanitize_address
+  private
+
+  def sanitize_address
+    self.address = address.strip
+    # seld.address = address.gsub(/[^0-9A-Za-z]/, '')
+  end
 end
