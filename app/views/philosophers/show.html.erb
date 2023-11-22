@@ -12,6 +12,12 @@
 <p>Communication Style: <%= @philosopher.communication_style %></p>
 
 <!-- Add more philosopher details as needed -->
+<%= simple_form_for [@philosopher, @dinner] do |f| %>
+  <%= f.input :date, as: :string %>
+  <%= f.input :credit_card %>
+  <%= f.input :length, collection: 1..5, label: 'Dinner duration (hours)' %>
+
+  <%= f.button :submit, "Confirm Booking" %>
+<% end %>
+
 <%= link_to 'Back to List', philosophers_path, class: "btn btn-primary" %>
-
-
