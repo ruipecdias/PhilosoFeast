@@ -7,6 +7,7 @@
     <thead>
       <tr>
         <th>Name</th>
+        <th>Profile Picture</th>
         <th>Age</th>
         <th>Location</th>
         <th>Specialization</th>
@@ -18,6 +19,7 @@
       <% @philosophers.each do |philosopher| %>
         <tr>
           <td><%= philosopher.user.username %></td>
+          <td><%= image_tag philosopher.user.image_url, alt: "Image of #{philosopher.user.username}", width: "100" %></td>
           <td><%= philosopher.age %></td>
           <td><%= philosopher.location %></td>
           <td><%= philosopher.preferred_topic %></td>
