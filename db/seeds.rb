@@ -25,7 +25,7 @@ Philosopher.create!(
   dress_code: "casual",
   language: "english",
   communication_style: "casual",
-  user: philosopher_users[0]
+  user: philosopher_users[0],
 )
 
 Philosopher.create!(
