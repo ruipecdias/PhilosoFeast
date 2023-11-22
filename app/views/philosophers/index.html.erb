@@ -1,35 +1,21 @@
-<h1>Philosophers</h1>
-
 <% if @philosophers.empty? %>
   <p>No philosophers available at the moment.</p>
 <% else %>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Profile Picture</th>
-        <th>Age</th>
-        <th>Location</th>
-        <th>Specialization</th>
-        <!-- Add more headers based on the philosopher attributes you want to display -->
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @philosophers.each do |philosopher| %>
-        <tr>
-          <td><%= philosopher.user.username %></td>
-          <td><%= image_tag philosopher.user.image_url, alt: "Image of #{philosopher.user.username}", width: "100" %></td>
-          <td><%= philosopher.age %></td>
-          <td><%= philosopher.location %></td>
-          <td><%= philosopher.preferred_topic %></td>
-          <!-- Add more cells based on the philosopher attributes you want to display -->
-          <td><%= link_to 'View', philosopher_path(philosopher) %></td>
-        </tr>
-      <% end %>
-      <%= link_to "Back to Home", root_path, class: "btn btn-primary" %>
-    </tbody>
-  </table>
+  <div class="philosophers-container">
+    <% @philosophers.each do |philosopher| %>
+      <div class="philosopher-card">
+        <h4><%= philosopher.user.username %></h4>
+        <div class="philosopher-info">
+        <%= image_tag philosopher.user.image_url, alt: "Image of #{philosopher.user.username}", width: "100"%>
+        <p><strong>Age:</strong> <%= philosopher.age %></p>
+        <p><strong>Location:</strong> <%= philosopher.location %></p>
+        <p><strong>Specialization:</strong> <%= philosopher.preferred_topic %></p>
+        <!-- Add more content based on the philosopher attributes you want to display -->
+        <%= link_to 'Read more...', philosopher_path(philosopher), class: 'button' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
 <div style="width: 100%; height: 600px;"
   data-controller="map"

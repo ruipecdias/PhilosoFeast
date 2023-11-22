@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 body {
-  background-color: beige;
+  background-color: #e1e1e1;
   min-height: 100vh;
 }
 
@@ -23,15 +23,14 @@ body {
 }
 
 h2 {
-  color: beige;
+  color: white;
   font-family: 'Anek Malayalam', sans-serif;
   font-weight: bold;
   font-size: 400%;
-
 }
 
-p {
-  color: beige;
+h4 {
+  color: white;
   font-family: 'Anek Malayalam', sans-serif;
   font-size: 200%;
 }
@@ -45,6 +44,7 @@ p {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
+  border-radius: 10px;
 }
 
 .login {
