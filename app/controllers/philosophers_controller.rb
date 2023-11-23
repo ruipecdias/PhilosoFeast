@@ -3,7 +3,11 @@ class PhilosophersController < ApplicationController
 
     # GET /philosophers
     def index
-      @philosophers = Philosopher.all
+      if params[:query].present?
+        @philosophers = Philosopher.joins(:user).where("users.username ILIKE ?", "%#{params[:query]}%")
+      else
+        @philosophers = Philosopher.all
+      end
       @markers = @philosophers.geocoded.map do |philosopher|
         {
           lat: philosopher.latitude,
@@ -60,6 +64,6 @@ class PhilosophersController < ApplicationController
     end
 
     def philosopher_params
-      params.require(:philosopher).permit(:age, :location, :availability, :bio, :price_per_hour, :preferred_topic, :philosophical_focus, :dress_code, :language, :communication_style, :user_id)
+      params.require(:philosopher).permit(:age, :location, :availability, :bio, :price_per_hour, :preferred_topic, :philosophical_focus, :dress_code, :nationality, :communication_style, :user_id)
     end
   end

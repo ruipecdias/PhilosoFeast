@@ -26,7 +26,7 @@ Philosopher.create!(
   preferred_topic: "life",
   philosophical_focus: "life",
   dress_code: "casual",
-  language: "english",
+  nationality: "english",
   communication_style: "casual",
   user: philosopher_users[0],
 )
@@ -39,7 +39,7 @@ Philosopher.create!(
   preferred_topic: "life",
   philosophical_focus: "life",
   dress_code: "casual",
-  language: "english",
+  nationality: "english",
   communication_style: "casual",
   user: philosopher_users[1]
 )
@@ -53,7 +53,7 @@ Philosopher.create!(
   preferred_topic: "life",
   philosophical_focus: "life",
   dress_code: "casual",
-  language: "english",
+  nationality: "english",
   communication_style: "casual",
   user: philosopher_users[2]
 )
@@ -67,7 +67,7 @@ Philosopher.create!(
   preferred_topic: "life",
   philosophical_focus: "life",
   dress_code: "casual",
-  language: "english",
+  nationality: "english",
   communication_style: "casual",
   user: philosopher_users[3]
 )
@@ -81,7 +81,7 @@ Philosopher.create!(
   preferred_topic: "life",
   philosophical_focus: "life",
   dress_code: "casual",
-  language: "english",
+  nationality: "english",
   communication_style: "casual",
   user: philosopher_users[4]
 )
