@@ -1,19 +1,50 @@
 // Import page-specific CSS files here.
 @import "home";
 
+.content {
+  display: flex;
+}
+
 h1 {
   color: white;
   font-family: 'Anek Malayalam', sans-serif;
   font-size: 200%;
 }
 
+.philosophers-cards {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  padding: 16px;
+}
+
 .philosopher-card {
-  background-color: #f1f1f1;
-  padding: 20px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 5px; /* 5px rounded corners */
+  text-decoration: none;
+}
+
+.philosopher-info {
   border-radius: 5px;
-  width: 300px;
-  margin-top: 25px;
-  margin-bottom: 25px;
+  padding: 10px;
+  margin: 3px;
+  font-size: larger;
+  line-height: 0.5;
+}
+
+.read-button {
+  background-color: #595959;
+  border: none;
+  color: white;
+  padding: 15px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  justify-self: right;
+  font-size: 15px;
+  border-radius: 10px;
 }
 
 h4 {
@@ -22,39 +53,10 @@ h4 {
   font-size: 150%;
 }
 
-.philosophers-container {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(20px, 1fr));
-  margin-left: 50px;
-}
-
-.philosopher-info {
-  border-radius: 5px;
-  padding: 10px;
-  margin: 5px;
-  font-size: larger;
-}
 
 .philosopher-name {
   background-color: #cbcbcb;
   padding: 25px;
-}
-
-@media (max-width: 768px) {
-  .philosophers-container {
-    grid-template-columns: repeat(2, minmax(20px, 1fr));
-  }
-}
-
-@media (max-width: 576px) {
-  .philosophers-container {
-    grid-template-columns: repeat(1, minmax(20px, 1fr));
-  }
-}
-
-.philosopher-flex {
-  display: flex;
-  align-items: center;
 }
 
 .philosopher-description {
@@ -63,10 +65,53 @@ h4 {
 }
 
 .philosopher-avatar {
-  margin-left: auto;
+  height: 250px;
+  background-size: cover;
 }
 
 .myform {
   background-color: #cbcbcb;
   padding: 25px;
+}
+
+#map {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+/*Media Queries*/
+
+/*Smallest device*/
+@media (min-width: 100px) and (max-width: 575px) {
+  .philosophers-container {
+    grid-template-columns: 1fr;
+  }
+  #map {
+    display: none;
+  }
+}
+
+/*Small devices (landscape phones, 576px and up)*/
+@media (min-width: 576px) {
+  .philosophers-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  #map {
+    display: none;
+  }
+}
+
+/*Medium devices (tablets, 768px and up)*/
+@media (min-width: 1200px) {
+  .philosophers-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  #map {
+    display: block;
+  }
+}
+
+.padded {
+  padding: 30px 0;
 }

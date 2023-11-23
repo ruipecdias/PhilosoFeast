@@ -2,31 +2,32 @@
   <%= text_field_tag :query, params[:query], placeholder: "Search by name" %>
   <%= submit_tag "Search" %>
 <% end %>
+<div class="content">
 
-<% if @philosophers.empty? && params[:query].present? %>
-  <p>No such philosophers found. Put a philosopher's name. </p>
-<% elsif @philosophers.empty? %>
-  <p>No philosophers available at the moment.</p>
-<% else %>
-  <div class="philosophers-container">
-    <% @philosophers.each do |philosopher| %>
-      <div class="philosopher-card">
-        <h4><%= philosopher.user.username %></h4>
-        <div class="philosopher-info">
-        <%= image_tag philosopher.user.image_url, alt: "Image of #{philosopher.user.username}", width: "100"%>
-        <p><strong>Age:</strong> <%= philosopher.age %></p>
-        <p><strong>Location:</strong> <%= philosopher.location %></p>
-        <p><strong>Specialization:</strong> <%= philosopher.preferred_topic %></p>
-        <!-- Add more content based on the philosopher attributes you want to display -->
-        <%= link_to 'Read more...', philosopher_path(philosopher), class: 'button' %>
-        </div>
-      </div>
-    <% end %>
+  <% if @philosophers.empty? && params[:query].present? %>
+    <p>No such philosophers found. Put a philosopher's name. </p>
+  <% elsif @philosophers.empty? %>
+    <p>No philosophers available at the moment.</p>
+  <% else %>
+    <div class="philosophers-cards">
+      <% @philosophers.each do |philosopher| %>
+        <%= link_to philosopher_path(philosopher), class: 'philosopher-card rounded-4' do %>
+          <%#= image_tag "aristotle_selfie.png", alt: "Image of #{philosopher.user.username}" %>
+          <div class="w-100 rounded-4 philosopher-avatar" style="background-image: url('<%= image_path('aristotle_selfie.png') %>')"></div>
+          <div class="philosopher-info">
+            <h4><%= philosopher.user.username %></h4>
+            <p><strong><%= philosopher.location %></strong></p>
+            <p class="text-secondary"><small><%= philosopher.age %> years old</small></p>
+            <p class="text-secondary"><small>Wants to talk about <%= philosopher.preferred_topic %></small></p>
+            <br>
+          </div>
+        <% end %>
+      <% end %>
+    </div>  
+  <% end %>
+  <div class="map m-3 rounded-4" style="width: 50%;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-
-<div class="map" style="width: 100%; height: 450px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
-<% end %>
