@@ -28,10 +28,25 @@
   <%= simple_form_for [@philosopher, @dinner] do |f| %>
     <%= f.input :date, as: :string %>
     <%= f.input :credit_card %>
-    <%= f.input :length, collection: 1..5, label: 'Dinner duration (hours)' %>
+    <%= f.input :length, collection: 1..5, label: 'Dinner duration (hours)', input_html: { id: 'length_input' } %>
     <%= f.button :submit, "Confirm Booking", class: "custom-button" %>
+    <p>Total Price for Dinner: <span id="total_price"><%= @philosopher.price_per_hour %></span></p>
   <% end %>
   </div>
   <br>
   <%= link_to 'Back to List', philosophers_path%>
 </div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var pricePerHour = <%= @philosopher.price_per_hour.to_json %>;
+    var lengthInput = document.getElementById("length_input");
+    var totalPriceDisplay = document.getElementById("total_price");
+
+    lengthInput.addEventListener("change", function() {
+      var length = this.value;
+      var totalPrice = pricePerHour * length;
+      total_price.textContent = totalPrice
+    });
+  });
+</script>
