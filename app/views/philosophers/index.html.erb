@@ -15,8 +15,7 @@ style: "background-color: #f5f5f5; border: 1px solid #ddd; padding: 5px; border-
     <div class="philosophers-cards">
       <% @philosophers.each do |philosopher| %>
         <%= link_to philosopher_path(philosopher), class: 'philosopher-card rounded-4' do %>
-          <%#= image_tag "aristotle_selfie.png", alt: "Image of #{philosopher.user.username}" %>
-          <div class="w-100 rounded-4 philosopher-avatar" style="background-image: url('<%= image_path('aristotle_selfie.png') %>')"></div>
+          <div class="w-100 rounded-4 philosopher-avatar" style="background-image: url('<%= cl_image_path(philosopher.user.photo.key, height: 250) %>')"></div>
           <div class="philosopher-info">
             <h4><%= philosopher.user.username %></h4>
             <p><strong><%= philosopher.nationality %></strong></p>

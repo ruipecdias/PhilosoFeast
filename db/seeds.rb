@@ -4,39 +4,40 @@ User.destroy_all
 
 # the lines below creates 10 users ( 5 with a philosopher profile and 5 without a philosopher profile)
 philosopher_users = []
-philo_names = ['Aristotle',
-              'Confucius',
-              'Dante Alighieri',
-              'René Descartes',
-              'Epicurus',
-              'Hannah Arendt',
-              'Hegel',
-              'Immanuel Kant',
-              'Lao Tsé',
-              'John Locke',
-              'Niccolò Machiavelli',
-              'Karl Marx',
-              'Friedrich Nietzsche',
-              'Fernando Pessoa',
-              'Plato',
-              'Pythagoras',
-              'Simone de Beauvoir',
-              'Socrates',
-              'Spinoza',
-              'Voltaire']
-i = 0
-20.times do
+philo_names = [
+  'Aristotle',
+  'Confucius',
+  'Dante Alighieri',
+  'René Descartes',
+  'Epicurus',
+  'Hannah Arendt',
+  'Hegel',
+  'Immanuel Kant',
+  'Lao Tsé',
+  'John Locke',
+  'Niccolò Machiavelli',
+  'Karl Marx',
+  'Friedrich Nietzsche',
+  'Fernando Pessoa',
+  'Plato',
+  'Pythagoras',
+  'Simone de Beauvoir',
+  'Socrates',
+  'Spinoza',
+  'Voltaire'
+]
+
+philo_names.each do |name|
   philosopher_users << User.create!(
     email: Faker::Internet.email,
     password: Faker::Internet.password,
     philosopher: true,
-    username: philo_names[0 + i],
-    image_url: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Aristotle_Altemps_Inv8575.jpg"
+    username: name,
   )
-  i += 1
 end
 
-Philosopher.create!(
+puts "Adding philosopher..."
+philosopher = Philosopher.create!(
   age: 2384,
   location: "Av. António Augusto de Aguiar 24A, 1050-010 Lisboa",
   availability: "6 pm - 10 pm",
@@ -51,7 +52,12 @@ Philosopher.create!(
   user: philosopher_users[0]
 )
 
-Philosopher.create!(
+file = URI.open("https://res.cloudinary.com/diaskeccj/image/upload/v1700756308/philosophers/aristotle_selfie_ek8x9l.png")
+philosopher.user.photo.attach(io: file, filename: 'aristotle.jpg', content_type: 'image/jpg')
+philosopher.user.save!
+
+puts "Adding philosopher..."
+philosopher = Philosopher.create!(
   age: 2570,
   location: "R. Alexandre Herculano 7C, 1500-005 Lisboa",
   availability: "5 pm - 9 pm",
@@ -66,7 +72,12 @@ Philosopher.create!(
   user: philosopher_users[1]
 )
 
-Philosopher.create!(
+file = URI.open("https://res.cloudinary.com/diaskeccj/image/upload/v1700756307/philosophers/confucio_selfie_dpv8ph.png")
+philosopher.user.photo.attach(io: file, filename: 'confucius.jpg', content_type: 'image/jpg')
+philosopher.user.save!
+
+puts "Adding philosopher..."
+philosopher = Philosopher.create!(
   age: 756,
   location: "Av. Fontes Pereira de Melo 31, 1050-117 Lisboa",
   availability: "7 pm - 11 pm",
@@ -81,7 +92,12 @@ Philosopher.create!(
   user: philosopher_users[2]
 )
 
-Philosopher.create!(
+file = URI.open("https://res.cloudinary.com/diaskeccj/image/upload/v1700756525/philosophers/dante_selfie_n5lwyj.png")
+philosopher.user.photo.attach(io: file, filename: 'dante.jpg', content_type: 'image/jpg')
+philosopher.user.save!
+
+puts "Adding philosopher..."
+philosopher = Philosopher.create!(
   age: 425,
   location: "R. Gomes Freire 60, 1150-175 Lisboa",
   availability: "6 pm - 10 pm",
@@ -96,7 +112,12 @@ Philosopher.create!(
   user: philosopher_users[3]
 )
 
-Philosopher.create!(
+file = URI.open("https://res.cloudinary.com/diaskeccj/image/upload/v1700756286/philosophers/descartes_selfie_hkovf4.png")
+philosopher.user.photo.attach(io: file, filename: 'descartes.jpg', content_type: 'image/jpg')
+philosopher.user.save!
+
+puts "Adding philosopher..."
+philosopher = Philosopher.create!(
   age: 2342,
   location: "Av. da República 14, 1050-191 Lisboa",
   availability: "7 pm - 9 pm",
@@ -111,7 +132,12 @@ Philosopher.create!(
   user: philosopher_users[4]
 )
 
-Philosopher.create!(
+file = URI.open("https://res.cloudinary.com/diaskeccj/image/upload/v1700756294/philosophers/epicuro_selfie_png_yemtqp.png")
+philosopher.user.photo.attach(io: file, filename: 'epicurus.jpg', content_type: 'image/jpg')
+philosopher.user.save!
+
+puts "Adding philosopher..."
+philosopher = Philosopher.create!(
   age: 116,
   location: "Av. da República 25A, 1050-186 Lisboa",
   availability: "6 pm - 10 pm",
@@ -127,7 +153,12 @@ Philosopher.create!(
   user: philosopher_users[5]
 )
 
-Philosopher.create!(
+file = URI.open("https://res.cloudinary.com/diaskeccj/image/upload/v1700756296/philosophers/hannah_arendt_selfie_jgfzub.png")
+philosopher.user.photo.attach(io: file, filename: 'arendt.jpg', content_type: 'image/jpg')
+philosopher.user.save!
+
+puts "Adding philosopher..."
+philosopher = Philosopher.create!(
   age: 250,
   location: "Av. Duque de Ávila 11-13, 1000-138 Lisboa",
   availability: "5 pm - 9 pm",
@@ -142,7 +173,12 @@ Philosopher.create!(
   user: philosopher_users[6]
 )
 
-Philosopher.create!(
+file = URI.open("https://res.cloudinary.com/diaskeccj/image/upload/v1700756293/philosophers/hegel_selfie_lbj7rl.png")
+philosopher.user.photo.attach(io: file, filename: 'hegel.jpg', content_type: 'image/jpg')
+philosopher.user.save!
+
+puts "Adding philosopher..."
+philosopher = Philosopher.create!(
   age: 292,
   location: "R. São José 168, 1150-326 Lisboa",
   availability: "7 pm - 11 pm",
@@ -158,7 +194,12 @@ Philosopher.create!(
   user: philosopher_users[7]
 )
 
-Philosopher.create!(
+file = URI.open("https://res.cloudinary.com/diaskeccj/image/upload/v1700756298/philosophers/kant_selfie_cnq011.png")
+philosopher.user.photo.attach(io: file, filename: 'kant.jpg', content_type: 'image/jpg')
+philosopher.user.save!
+
+puts "Adding philosopher..."
+philosopher = Philosopher.create!(
   age: 2604,
   location: "R. Luciano Cordeiro 65, 1150-341 Lisboa",
   availability: "6 pm - 10 pm",
@@ -173,7 +214,12 @@ Philosopher.create!(
   user: philosopher_users[8]
 )
 
-Philosopher.create!(
+file = URI.open("https://res.cloudinary.com/diaskeccj/image/upload/v1700756290/philosophers/lao_tse_selfie_js6gvl.png")
+philosopher.user.photo.attach(io: file, filename: 'tse.jpg', content_type: 'image/jpg')
+philosopher.user.save!
+
+puts "Adding philosopher..."
+philosopher = Philosopher.create!(
   age: 370,
   location: "Av. Alm. Reis 1 H, 1150-007 Lisbo",
   availability: "7 pm - 9 pm",
@@ -189,7 +235,12 @@ Philosopher.create!(
   user: philosopher_users[9]
 )
 
-Philosopher.create!(
+file = URI.open("https://res.cloudinary.com/diaskeccj/image/upload/v1700756300/philosophers/locke_selfie_vnelbj.png")
+philosopher.user.photo.attach(io: file, filename: 'locke.jpg', content_type: 'image/jpg')
+philosopher.user.save!
+
+puts "Adding philosopher..."
+philosopher = Philosopher.create!(
   age: 553,
   location: "Largo da Academia Nacional de Belas Artes 19, 1200-289 Lisboa",
   availability: "7 pm - 9 pm",
@@ -204,8 +255,12 @@ Philosopher.create!(
   user: philosopher_users[10]
 )
 
+file = URI.open("https://res.cloudinary.com/diaskeccj/image/upload/v1700756288/philosophers/machiavelli_selfie_hdfn5e.png")
+philosopher.user.photo.attach(io: file, filename: 'machiavelli.jpg', content_type: 'image/jpg')
+philosopher.user.save!
 
-Philosopher.create!(
+puts "Adding philosopher..."
+philosopher = Philosopher.create!(
   age: 204,
   location: "Av. Dom Carlos I 17-25, 1200-000 Lisboa",
   availability: "6 pm - 10 pm",
@@ -221,7 +276,12 @@ Philosopher.create!(
   user: philosopher_users[11]
 )
 
-Philosopher.create!(
+file = URI.open("https://res.cloudinary.com/diaskeccj/image/upload/v1700756308/philosophers/marx_selfie_voae55.png")
+philosopher.user.photo.attach(io: file, filename: 'marx.jpg', content_type: 'image/jpg')
+philosopher.user.save!
+
+puts "Adding philosopher..."
+philosopher = Philosopher.create!(
   age: 178,
   location: "R. Alexandre Herculano 7C, 1500-005 Lisboa",
   availability: "5 pm - 9 pm",
@@ -237,7 +297,12 @@ Philosopher.create!(
   user: philosopher_users[12]
 )
 
-Philosopher.create!(
+file = URI.open("https://res.cloudinary.com/diaskeccj/image/upload/v1700756302/philosophers/nietszche_selfie_ovolo2.png")
+philosopher.user.photo.attach(io: file, filename: 'nietzsche.jpg', content_type: 'image/jpg')
+philosopher.user.save!
+
+puts "Adding philosopher..."
+philosopher = Philosopher.create!(
   age: 134,
   location: "R. Garrett 122, 1200-205 Lisboa",
   availability: "7 pm - 11 pm",
@@ -252,7 +317,12 @@ Philosopher.create!(
   user: philosopher_users[13]
 )
 
-Philosopher.create!(
+file = URI.open("https://res.cloudinary.com/diaskeccj/image/upload/v1700756288/philosophers/pessoa_selfie_zjqt9m.png")
+philosopher.user.photo.attach(io: file, filename: 'pessoa.jpg', content_type: 'image/jpg')
+philosopher.user.save!
+
+puts "Adding philosopher..."
+philosopher = Philosopher.create!(
   age: 2427,
   location: "R. Tomás Ribeiro 95B, 1050-227 Lisboa",
   availability: "6 pm - 10 pm",
@@ -267,7 +337,12 @@ Philosopher.create!(
   user: philosopher_users[14]
 )
 
-Philosopher.create!(
+file = URI.open("https://res.cloudinary.com/diaskeccj/image/upload/v1700756291/philosophers/plato_selfie_b0gsec.png")
+philosopher.user.photo.attach(io: file, filename: 'plato.jpg', content_type: 'image/jpg')
+philosopher.user.save!
+
+puts "Adding philosopher..."
+philosopher = Philosopher.create!(
   age: 2571,
   location: "Rua da Ilha de Sao Tomé 10A B, 1170-185 Lisboa",
   availability: "7 pm - 9 pm",
@@ -283,7 +358,12 @@ Philosopher.create!(
   user: philosopher_users[15]
 )
 
-Philosopher.create!(
+file = URI.open("https://res.cloudinary.com/diaskeccj/image/upload/v1700756348/philosophers/pythagoras_selfie_hcukq1.png")
+philosopher.user.photo.attach(io: file, filename: 'pythagoras.jpg', content_type: 'image/jpg')
+philosopher.user.save!
+
+puts "Adding philosopher..."
+philosopher = Philosopher.create!(
   age: 114,
   location: "R. Cavaleiro de Oliveira 42, 1170-088 Lisboa",
   availability: "6 pm - 10 pm",
@@ -298,7 +378,12 @@ Philosopher.create!(
   user: philosopher_users[16]
 )
 
-Philosopher.create!(
+file = URI.open("https://res.cloudinary.com/diaskeccj/image/upload/v1700756287/philosophers/simone_de_beauvoir_selfie_iz2wxq.png")
+philosopher.user.photo.attach(io: file, filename: 'beauvoir.jpg', content_type: 'image/jpg')
+philosopher.user.save!
+
+puts "Adding philosopher..."
+philosopher = Philosopher.create!(
   age: 2469,
   location: "Calçada Poço dos Mouros 28, 1170-318 Lisboa",
   availability: "5 pm - 9 pm",
@@ -314,13 +399,17 @@ Philosopher.create!(
   user: philosopher_users[17]
 )
 
-Philosopher.create!(
+file = URI.open("https://res.cloudinary.com/diaskeccj/image/upload/v1700756295/philosophers/socrates_selfie_pqdbo9.png")
+philosopher.user.photo.attach(io: file, filename: 'socrates.jpg', content_type: 'image/jpg')
+philosopher.user.save!
+
+puts "Adding philosopher..."
+philosopher = Philosopher.create!(
   age: 388,
   location: "R. Marquês Sá da Bandeira 76, 1050-150 Lisboa",
   availability: "7 pm - 11 pm",
-  bio: "Immanuel Kant, the philosopher of reason and duty, exploring the foundations of
-  morality. Join me in the examination of the categorical imperative and the nature of
-  human autonomy.",
+  bio: "Baruch Spinoza, the rationalist philosopher, exploring the nature of God and the
+  mind. Join me in the pursuit of a rational and ethical understanding of existence.",
   price_per_hour: 160,
   preferred_topic: "Ethics and Metaphysics",
   philosophical_focus: "Ethics and Metaphysics",
@@ -330,7 +419,12 @@ Philosopher.create!(
   user: philosopher_users[18]
 )
 
-Philosopher.create!(
+file = URI.open("https://res.cloudinary.com/diaskeccj/image/upload/v1700756289/philosophers/spinoza_selfie_mr2dko.png")
+philosopher.user.photo.attach(io: file, filename: 'spinoza.jpg', content_type: 'image/jpg')
+philosopher.user.save!
+
+puts "Adding philosopher..."
+philosopher = Philosopher.create!(
   age: 328,
   location: "Av. Marquês de Tomar 44 b 1050-053, 1050-156 Lisboa",
   availability: "6 pm - 10 pm",
@@ -346,6 +440,10 @@ Philosopher.create!(
   user: philosopher_users[19]
 )
 
+file = URI.open("https://res.cloudinary.com/diaskeccj/image/upload/v1700756299/philosophers/voltaire_selfie_tso2bl.png")
+philosopher.user.photo.attach(io: file, filename: 'voltaire.jpg', content_type: 'image/jpg')
+philosopher.user.save!
+
 users = []
 
 5.times do
@@ -353,7 +451,6 @@ users = []
     email: Faker::Internet.email,
     password: Faker::Internet.password,
     philosopher: false, username: Faker::Internet.username,
-    image_url:"https://upload.wikimedia.org/wikipedia/commons/a/ae/Aristotle_Altemps_Inv8575.jpg"
   )
 end
 
