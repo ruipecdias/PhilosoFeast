@@ -30,12 +30,16 @@ class PhilosophersController < ApplicationController
 
     # GET /philosophers/new
     def new
-      @philosopher = Philosopher.new
+      if current_user.philosopher
+        redirect_to some_other_path, alert: "You are already registered as a philosopher."
+      else
+        @philosopher = Philosopher.new
+      end
     end
 
     # POST /philosophers
     def create
-      @philosopher = Philosopher.new(philosopher_params)
+      @philosopher = current_user.philosophers.build(philosopher_params)
 
       if @philosopher.save
         redirect_to @philosopher, notice: 'Philosopher was successfully created.'
