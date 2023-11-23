@@ -2,21 +2,20 @@
   <h4><%= @philosopher.user.username %></h4>
 </div>
 <div class="philosopher-flex">
-  <div class="philosopher-avatar">
-    <td><%= image_tag @philosopher.user.image_url, alt: "Image of #{@philosopher.user.username}", height: "450" %></td>
-  </div>
+  <div class="m-3 rounded-4 philosopher-avatar-big" style="background-image: url('<%= image_path('aristotle_selfie.png') %>')"></div>
   <div class="philosopher-description">
-    <p><strong>Age:</strong> <%= @philosopher.age %></p>
-    <p><strong>Location:</strong> <%= @philosopher.location %></p>
-    <p><strong>Bio:</strong> <%= @philosopher.bio %></p>
-    <p><strong>Availability:</strong> <%= @philosopher.availability %></p>
-    <p><strong>Price:</strong> <%= @philosopher.price_per_hour %></p>
-    <p><strong>Nationality:</strong> <%= @philosopher.nationality %></p>
-    <p><strong>Prefered Topic:</strong> <%= @philosopher.preferred_topic %></p>
-    <p><strong>Philosophical Focus:</strong> <%= @philosopher.philosophical_focus %></p>
-    <p><strong>Dress Code:</strong> <%= @philosopher.dress_code %></p>
-    <p><strong>Communication Style:</strong> <%= @philosopher.communication_style %></p>  </div>
-  <div style="width: 700px; height: 450px;"
+
+    <p><%= @philosopher.age %> years old</p>
+    <p><strong>About me:</strong><em>"<%= @philosopher.bio %>"</em></p>
+    <p><i class="fa-solid fa-clock" style="color: #000000;"></i> <%= @philosopher.availability %></p>
+    <p><i class="fa-solid fa-money-bill-wave" style="color: #000000;"></i> <%= @philosopher.price_per_hour %></p>
+    <p><i class="fa-solid fa-language" style="color: #000000;"></i> <%= @philosopher.nationality %></p>
+    <p><i class="fa-solid fa-heart" style="color: #000000;"></i><%= @philosopher.preferred_topic %></p>
+    <p><i class="fa-solid fa-fire" style="color: #000000;"></i><%= @philosopher.philosophical_focus %></p>
+    <p><i class="fa-solid fa-shirt" style="color: #000000;"></i> <%= @philosopher.dress_code %></p>
+    <p><i class="fa-solid fa-comments" style="color: #000000;"></i> <%= @philosopher.communication_style %></p>  </div>
+  <div class="map m-3 rounded-4" style="width: 30%;"
+       
     data-controller="map"
     data-map-markers-value="<%= @marker.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
