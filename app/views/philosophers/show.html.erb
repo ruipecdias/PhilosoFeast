@@ -2,7 +2,7 @@
   <h4><%= @philosopher.user.username %></h4>
 </div>
 <div class="philosopher-flex">
-  <div class="m-3 rounded-4 philosopher-avatar-big" style="background-image: url('<%= image_path('aristotle_selfie.png') %>')"></div>
+  <div class="m-3 rounded-4 philosopher-avatar-big" style="background-image: url('<%= cl_image_path(@philosopher.user.photo.key, width: 400) %>')"></div>
   <div class="philosopher-description">
 
     <p><%= @philosopher.age %> years old</p>
@@ -15,7 +15,7 @@
     <p><i class="fa-solid fa-shirt" style="color: #000000;"></i> <%= @philosopher.dress_code %></p>
     <p><i class="fa-solid fa-comments" style="color: #000000;"></i> <%= @philosopher.communication_style %></p>  </div>
   <div class="map m-3 rounded-4" style="width: 30%;"
-       
+
     data-controller="map"
     data-map-markers-value="<%= @marker.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>

@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :philosophers
   has_many :dinners
+
+  has_one_attached :photo
 end
