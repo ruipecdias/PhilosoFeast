@@ -15,8 +15,11 @@ class PhilosophersController < ApplicationController
 
     # GET /philosophers/:id
     def show
-      # The view will display the details of the philosopher
       @philosopher = Philosopher.find(params[:id])
+        @marker = [{
+          lat: @philosopher.latitude,
+          lng: @philosopher.longitude
+        }]
       @dinner = Dinner.new
     end
 

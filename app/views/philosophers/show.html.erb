@@ -18,7 +18,7 @@
     <p><strong>Communication Style:</strong> <%= @philosopher.communication_style %></p>  </div>
   <div style="width: 700px; height: 450px;"
     data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-markers-value="<%= @marker.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
 </div>
