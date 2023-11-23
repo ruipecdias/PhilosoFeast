@@ -4,37 +4,56 @@
 <div class="philosopher-flex">
   <div class="m-3 rounded-4 philosopher-avatar-big" style="background-image: url('<%= image_path('aristotle_selfie.png') %>')"></div>
   <div class="philosopher-description">
+    <p class="bigger-paragraph"><i class="fa-solid fa-cake-candles" style="color: #000000;"></i> <%= @philosopher.age %> years old</p>
+    <p class="bigger-paragraph"><i class="fa-solid fa-clock" style="color: #000000;"></i> Available between <%= @philosopher.availability %></p>
+    <p class="bigger-paragraph"><i class="fa-solid fa-money-bill-wave" style="color: #000000;"></i> <%= @philosopher.price_per_hour %>/hour</p>
+    <p class="bigger-paragraph"><i class="fa-solid fa-language" style="color: #000000;"></i> <%= @philosopher.nationality %></p>
+    <p class="bigger-paragraph"><i class="fa-solid fa-heart" style="color: #000000;"></i> Loves to talk about <%= @philosopher.preferred_topic %></p>
+    <p class="bigger-paragraph"><i class="fa-solid fa-fire" style="color: #000000;"></i>  For me it's all about <%= @philosopher.philosophical_focus %></p>
+    <p class="bigger-paragraph"><i class="fa-solid fa-shirt" style="color: #000000;"></i> <%= @philosopher.dress_code %></p>
+    <p class="bigger-paragraph"><i class="fa-solid fa-comments" style="color: #000000;"></i> My communication style is <%= @philosopher.communication_style %></p>
+    <div class="bg-light p-3 rounded-4">
+      <p class="bigger-paragraph text-dark">
+        <strong>About me: </strong>
+        <em><%= @philosopher.bio %></em>
+      </p>
+    </div>
 
-    <p><%= @philosopher.age %> years old</p>
-    <p><strong>About me:</strong><em>"<%= @philosopher.bio %>"</em></p>
-    <p><i class="fa-solid fa-clock" style="color: #000000;"></i> <%= @philosopher.availability %></p>
-    <p><i class="fa-solid fa-money-bill-wave" style="color: #000000;"></i> <%= @philosopher.price_per_hour %></p>
-    <p><i class="fa-solid fa-language" style="color: #000000;"></i> <%= @philosopher.nationality %></p>
-    <p><i class="fa-solid fa-heart" style="color: #000000;"></i><%= @philosopher.preferred_topic %></p>
-    <p><i class="fa-solid fa-fire" style="color: #000000;"></i><%= @philosopher.philosophical_focus %></p>
-    <p><i class="fa-solid fa-shirt" style="color: #000000;"></i> <%= @philosopher.dress_code %></p>
-    <p><i class="fa-solid fa-comments" style="color: #000000;"></i> <%= @philosopher.communication_style %></p>  </div>
+    <div data-controller="toggle" class="mt-5 d-flex justify-content-between">
+      <button onclick="window.location.href='<%= philosophers_path %>'" class="btn btn-light rounded-4">Back to the List</button>
+      <button data-action="click->toggle#fire" class="btn btn-dark rounded-4">Book a dinner with <%= @philosopher.user.username %></button>
+       <div data-toggle-target="toggleableElement", class="d-none">
+        <%= simple_form_for [@philosopher, @dinner] do |f| %>
+          <div data-controller="priceupdate">
+            <%= f.input :date, as: :string %>
+            <%= f.input :credit_card %>
+            <%= f.input :length, collection: 1..5, label: 'Dinner duration (hours)', input_html: { id: 'length_input', data: {action: "change->priceupdate#newPrice"} }  %>
+            <%= f.button :submit, "Confirm Booking", class: "custom-button" %>
+            <p>Total Price for Dinner: <span id="total_price" data-priceupdate-target="totalPrice"><%= @philosopher.price_per_hour %></span></p>
+          </div>
+        <% end %>
+       </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        var pricePerHour = <%= @philosopher.price_per_hour.to_json %>;
+        var lengthInput = document.getElementById("length_input");
+        var totalPriceDisplay = document.getElementById("total_price");
+
+        lengthInput.addEventListener("change", function() {
+          var length = this.value;
+          var totalPrice = pricePerHour * length;
+          totalPriceDisplay.textContent = totalPrice
+        });
+      });
+    </script>
+    </div>
+
   <div class="map m-3 rounded-4" style="width: 30%;"
-       
     data-controller="map"
     data-map-markers-value="<%= @marker.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
 </div>
 
-<div data-controller="toggle" class="mt-5" >
-  <button data-action="click->toggle#fire" class="btn btn-outline-primary">Book a dinner with <%= @philosopher.user.username %></button>
-  <div data-toggle-target="toggleableElement", class="d-none">
-  <%= simple_form_for [@philosopher, @dinner] do |f| %>
-    <div data-controller="priceupdate">
-      <%= f.input :date, as: :string %>
-      <%= f.input :credit_card %>
-      <%= f.input :length, collection: 1..5, label: 'Dinner duration (hours)', input_html: { id: 'length_input', data: {action: "change->priceupdate#newPrice"} }  %>
-      <%= f.button :submit, "Confirm Booking", class: "custom-button" %>
-      <p>Total Price for Dinner: <span id="total_price" data-priceupdate-target="totalPrice"><%= @philosopher.price_per_hour %></span></p>
-    </div>
-  <% end %>
-  </div>
-  <br>
-  <%= link_to 'Back to List', philosophers_path%>
-</div>
