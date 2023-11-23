@@ -22,15 +22,17 @@
     <div data-controller="toggle" class="mt-5 d-flex justify-content-between">
       <button onclick="window.location.href='<%= philosophers_path %>'" class="btn btn-light rounded-4">Back to the List</button>
       <button data-action="click->toggle#fire" class="btn btn-dark rounded-4">Book a dinner with <%= @philosopher.user.username %></button>
-      <div data-toggle-target="toggleableElement", class="d-none">
+       <div data-toggle-target="toggleableElement", class="d-none">
         <%= simple_form_for [@philosopher, @dinner] do |f| %>
-          <%= f.input :date, as: :string %>
-          <%= f.input :credit_card %>
-          <%= f.input :length, collection: 1..5, label: 'Dinner duration (hours)', input_html: { id: 'length_input' } %>
-          <%= f.button :submit, "Confirm Booking", class: "custom-button" %>
-          <p>Total Price for Dinner: <span id="total_price"><%= @philosopher.price_per_hour %></span></p>
+          <div data-controller="priceupdate">
+            <%= f.input :date, as: :string %>
+            <%= f.input :credit_card %>
+            <%= f.input :length, collection: 1..5, label: 'Dinner duration (hours)', input_html: { id: 'length_input', data: {action: "change->priceupdate#newPrice"} }  %>
+            <%= f.button :submit, "Confirm Booking", class: "custom-button" %>
+            <p>Total Price for Dinner: <span id="total_price" data-priceupdate-target="totalPrice"><%= @philosopher.price_per_hour %></span></p>
+          </div>
         <% end %>
-      </div>
+       </div>
     </div>
 
     <script>
@@ -54,3 +56,4 @@
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
 </div>
+
