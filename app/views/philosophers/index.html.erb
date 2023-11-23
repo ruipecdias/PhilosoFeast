@@ -1,6 +1,9 @@
-<%= form_with url: philosophers_path, method: :get, class: "search-form" do %>
-  <%= text_field_tag :query, params[:query], placeholder: "Search by name" %>
-  <%= submit_tag "Search" %>
+<%= form_with url: philosophers_path, method: :get, class: "search-form m-3",
+style: "background-color: #f5f5f5; border: 1px solid #ddd; padding: 5px; border-radius: 10px; width: 100px;" do %>
+  <%= text_field_tag :query, params[:query], placeholder: "Search by name",
+  class: "search-input", style: "padding: 5px; border: none; outline: none; width: 21.5%;" %>
+  <%= submit_tag "Search", class: "search-button",
+  style: "background-color: #333; color: white; padding: 5px 10px; border: none; border-radius: 5px;" %>
 <% end %>
 <div class="content">
 
@@ -16,14 +19,14 @@
           <div class="w-100 rounded-4 philosopher-avatar" style="background-image: url('<%= image_path('aristotle_selfie.png') %>')"></div>
           <div class="philosopher-info">
             <h4><%= philosopher.user.username %></h4>
-            <p><strong><%= philosopher.location %></strong></p>
-            <p class="text-secondary"><small><%= philosopher.age %> years old</small></p>
-            <p class="text-secondary"><small>Wants to talk about <%= philosopher.preferred_topic %></small></p>
+            <p><strong><%= philosopher.nationality %></strong></p>
+            <p class="text-secondary"><%= philosopher.age %> years old</p>
+            <p class="text-secondary">Wants to talk about <%= philosopher.preferred_topic %></p>
             <br>
           </div>
         <% end %>
       <% end %>
-    </div>  
+    </div>
   <% end %>
   <div class="map m-3 rounded-4" style="width: 50%;"
     data-controller="map"
