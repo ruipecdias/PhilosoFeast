@@ -117,7 +117,7 @@ Philosopher.create!(
   availability: "6 pm - 10 pm",
   bio: "Hannah Arendt, the political theorist, navigating the complexities of human
   existence. Join me in exploring the nature of power, authority, and the essence of
-  poli=cal life.",
+  political life.",
   price_per_hour: 180,
   preferred_topic: "Political Philosophy and Existentialism",
   philosophical_focus: "The Human Condition",
@@ -169,7 +169,7 @@ Philosopher.create!(
   philosophical_focus: "Taoism",
   dress_code: "Traditional Chinese robe",
   nationality: "Chinese",
-  communication_style: "Poe=c and contemplative",
+  communication_style: "Poetic and contemplative",
   user: philosopher_users[8]
 )
 
@@ -241,8 +241,8 @@ Philosopher.create!(
   age: 134,
   location: "R. Garrett 122, 1200-205 Lisboa",
   availability: "7 pm - 11 pm",
-  bio: "Fernando Pessoa, the poet-philosopher with mul=ple literary personas. Join me in a
-  journey through the labyrinth of existence and the explora=on of the self.",
+  bio: "Fernando Pessoa, the poet-philosopher with multiple literary personas. Join me in a
+  journey through the labyrinth of existence and the exploration of the self.",
   price_per_hour: 120,
   preferred_topic: "Existentialism and Modernist Literature",
   philosophical_focus: "Heteronymic Literary Theory",
@@ -338,7 +338,7 @@ Philosopher.create!(
   me in the pursuit of intellectual freedom, critical thinking, and the battle against
   superstition.",
   price_per_hour: 140,
-  preferred_topic: "Enlightenment Philosophy and Sa=re",
+  preferred_topic: "Enlightenment Philosophy and Satire",
   philosophical_focus: "Candide",
   dress_code: "18th-century Enlightenment attire",
   nationality: "French",
