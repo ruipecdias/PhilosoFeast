@@ -23,14 +23,16 @@
   </div>
 </div>
 
-<div class="myform">
-  <h4>Book a dinner with <%= @philosopher.user.username %></h4>
+<div data-controller="toggle" class="mt-5" >
+  <button data-action="click->toggle#fire" class="btn btn-outline-primary">Book a dinner with <%= @philosopher.user.username %></button>
+  <div data-toggle-target="toggleableElement", class="d-none">
   <%= simple_form_for [@philosopher, @dinner] do |f| %>
     <%= f.input :date, as: :string %>
     <%= f.input :credit_card %>
     <%= f.input :length, collection: 1..5, label: 'Dinner duration (hours)' %>
     <%= f.button :submit, "Confirm Booking", class: "custom-button" %>
   <% end %>
+  </div>
   <br>
   <%= link_to 'Back to List', philosophers_path%>
 </div>
