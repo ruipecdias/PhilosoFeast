@@ -1,4 +1,11 @@
-<% if @philosophers.empty? %>
+<%= form_with url: philosophers_path, method: :get, class: "search-form" do %>
+  <%= text_field_tag :query, params[:query], placeholder: "Search by name" %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<% if @philosophers.empty? && params[:query].present? %>
+  <p>No such philosophers found. Put a philosopher's name. </p>
+<% elsif @philosophers.empty? %>
   <p>No philosophers available at the moment.</p>
 <% else %>
   <div class="philosophers-container">
