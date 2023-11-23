@@ -24,6 +24,7 @@ h1 {
   transition: 0.3s;
   border-radius: 5px; /* 5px rounded corners */
   text-decoration: none;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .philosopher-info {
@@ -50,13 +51,16 @@ h1 {
 h4 {
   color: rgb(34, 34, 34);
   font-weight: bold;
-  font-size: 150%;
+  font-size: 25px;
 }
 
-
+.philosopher-flex {
+  display: flex;
+}
 .philosopher-name {
-  background-color: #cbcbcb;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   padding: 25px;
+  background-color: white;
 }
 
 .philosopher-description {

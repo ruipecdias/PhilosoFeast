@@ -17,9 +17,14 @@ h1 {
   color: white;
 }
 
-.navbar-toggler-icon {
-  color: white;
+.nav-link:hover {
+  color: gray;
 }
+
+.navbar-toggler-icon:hover {
+  color: none;
+}
+
 
 
 // .navbar-lewagon .navbar-collapse {
