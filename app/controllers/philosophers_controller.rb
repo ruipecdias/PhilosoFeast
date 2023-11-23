@@ -1,5 +1,6 @@
 class PhilosophersController < ApplicationController
     before_action :set_philosopher, only: [:show, :edit, :update]
+    before_action :authenticate_user!, only: [:new, :create]
 
     # GET /philosophers
     def index

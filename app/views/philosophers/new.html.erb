@@ -1,0 +1,66 @@
+<% if user_signed_in? %>
+  <%= form_for(@philosopher) do |f| %>
+    <% if @philosopher.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@philosopher.errors.count, "error") %> prohibited this philosopher from being saved:</h2>
+
+        <ul>
+        <% @philosopher.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :age %>
+      <%= f.number_field :age %>
+    </div>
+
+    <div class="field">
+      <%= f.label :location %>
+      <%= f.text_field :location %>
+    </div>
+
+    <div class="field">
+      <%= f.label :bio %>
+      <%= f.text_area :bio %>
+    </div>
+
+    <div class="field">
+      <%= f.label :price_per_hour %>
+      <%= f.number_field :price_per_hour %>
+    </div>
+
+    <div class="field">
+      <%= f.label :preferred_topic %>
+      <%= f.text_field :preferred_topic %>
+    </div>
+
+    <div class="field">
+      <%= f.label :philosophical_focus %>
+      <%= f.text_field :philosophical_focus %>
+    </div>
+
+    <div class="field">
+      <%= f.label :dress_code %>
+      <%= f.text_field :dress_code %>
+    </div>
+
+    <div class="field">
+      <%= f.label :nationality %>
+      <%= f.text_field :nationality %>
+    </div>
+
+    <div class="field">
+      <%= f.label :communication_style %>
+      <%= f.text_field :communication_style %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Register me as a Philosopher" %>
+    </div>
+  <% end %>
+<% else %>
+  <p>You need to sign in or sign up before continuing.</p>
+<% end %>
