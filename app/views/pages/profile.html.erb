@@ -1,0 +1,19 @@
+<!-- profile.html.erb -->
+
+<!-- Display user's name at the top -->
+<h1>Welcome, <%= @user.username %>!</h1>
+
+<!-- Display user's dinners -->
+<% if @user.dinners.any? %>
+  <h2>Your Dinners:</h2>
+  <% @user.dinners.each do |dinner| %>
+    <div class="dinner">
+      <p>Date: <%= dinner.date %></p>
+      <p>Duration: <%= dinner.length %>h</p>
+      <!-- <p>Location: <%= dinner.location %></p> -->
+      <!-- Add additional dinner information as needed -->
+    </div>
+  <% end %>
+<% else %>
+  <p>You don't have any dinners booked.</p>
+<% end %>

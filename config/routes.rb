@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   resources :philosophers do
-    resources :dinners, only: [:index, :show, :new, :create] end
+    resources :dinners, only: [:index, :show, :new, :create]
   end
+  get "/profile", to: "pages#profile"
+end
