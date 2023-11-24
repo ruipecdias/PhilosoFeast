@@ -5,14 +5,14 @@
 <div class="philosopher-flex">
   <div class="m-3 rounded-4 philosopher-avatar-big" style="background-image: url('<%= cl_image_path(@philosopher.user.photo.key, width: 400) %>')"></div>
   <div class="philosopher-description">
-    <p class="bigger-paragraph"><i class="fa-solid fa-cake-candles" style="color: #000000;"></i> <%= @philosopher.age %> years old</p>
-    <p class="bigger-paragraph"><i class="fa-solid fa-clock" style="color: #000000;"></i> Available between <%= @philosopher.availability %></p>
-    <p class="bigger-paragraph"><i class="fa-solid fa-money-bill-wave" style="color: #000000;"></i> <%= @philosopher.price_per_hour %>/hour</p>
-    <p class="bigger-paragraph"><i class="fa-solid fa-language" style="color: #000000;"></i> <%= @philosopher.nationality %></p>
-    <p class="bigger-paragraph"><i class="fa-solid fa-heart" style="color: #000000;"></i> Loves to talk about <%= @philosopher.preferred_topic %></p>
-    <p class="bigger-paragraph"><i class="fa-solid fa-fire" style="color: #000000;"></i>  For me it's all about <%= @philosopher.philosophical_focus %></p>
-    <p class="bigger-paragraph"><i class="fa-solid fa-shirt" style="color: #000000;"></i> <%= @philosopher.dress_code %></p>
-    <p class="bigger-paragraph"><i class="fa-solid fa-comments" style="color: #000000;"></i> My communication style is <%= @philosopher.communication_style %></p>
+    <p class="bigger-paragraph">🎂 <%= @philosopher.age %> years old</p>
+    <p class="bigger-paragraph">🕰️ Available between <%= @philosopher.availability %></p>
+    <p class="bigger-paragraph">💰 <%= @philosopher.price_per_hour %>/hour</p>
+    <p class="bigger-paragraph">🌎 <%= @philosopher.nationality %></p>
+    <p class="bigger-paragraph">❤️ Loves to talk about <%= @philosopher.preferred_topic %></p>
+    <p class="bigger-paragraph">🔥 For me it's all about <%= @philosopher.philosophical_focus %></p>
+    <p class="bigger-paragraph">👗 <%= @philosopher.dress_code %></p>
+    <p class="bigger-paragraph">🗣️ My communication style is <%= @philosopher.communication_style %></p>
     <div class="bg-light p-3 rounded-4">
       <p class="bigger-paragraph text-dark">
         <strong>About me: </strong>
