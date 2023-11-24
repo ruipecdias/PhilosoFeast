@@ -24,13 +24,6 @@
                 required: true,
                 label: 'Upload Profile Picture',
                 input_html: { autocomplete: "off" } %>
-    <%= f.input :philosopher,
-                as: :select,
-                collection: [['YES', true], ['NO', false]],
-                label: 'Are you a philosopher?',
-                prompt: 'Select an option',
-                required: true,
-                input_html: { autocomplete: "Off" } %>
   </div>
 
   <div class="form-actions">

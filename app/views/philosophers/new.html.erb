@@ -5,6 +5,7 @@
 
   <div class="form-inputs">
     <%= f.input :age, required: true, input_html: { min: 0 } %>
+    <%= f.input :location, required: true %>
     <%= f.input :bio, as: :text, required: true %>
     <%= f.input :price_per_hour, required: true, input_html: { type: 'number', step: 'any' } %>
     <%= f.input :preferred_topic, required: true %>
