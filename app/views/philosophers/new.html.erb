@@ -1,9 +1,11 @@
-<div class='d-flex justify-content-center'>
-  <div class='signup-card bg-white col-5 p-5 m-4'>
-  <h4>Register as a Philosopher</h4>
+<div class="new-philo">
+   <div class='d-flex justify-content-center'>
+     <div class='signup-card col-6 p-5 m-4 rounded-4 bg-black bg-opacity-50'>
+
+  <h1>Register as a Philosopher</h1>
   <%= simple_form_for @philosopher, url: philosophers_path do |f| %>
     <%= f.error_notification %>
-    <div class="form-inputs">
+    <div class="form-inputs text-light">
       <%= f.input :age, required: true, input_html: { min: 0 } %>
       <%= f.input :location, required: true %>
       <%= f.input :bio, as: :text, required: true %>
@@ -15,10 +17,11 @@
       <%= f.input :communication_style, required: true %>
       <!-- Add other philosopher specific fields as required -->
     </div>
-    
+
     <div class="form-actions d-flex justify-content-center">
       <%= f.button :submit, "Register as Philosopher", class: "btn btn-dark text-white rounded-4" %>
     </div>
   <% end %>
   </div>
+</div>
 </div>
