@@ -8,9 +8,11 @@
   <h2>Your Dinners:</h2>
   <% @user.dinners.each do |dinner| %>
     <div class="dinner">
+      <p>Philosopher's name: <%= dinner.philosopher.user.username %></p>
       <p>Date: <%= dinner.date %></p>
       <p>Duration: <%= dinner.length %>h</p>
-      <!-- <p>Location: <%= dinner.location %></p> -->
+     <p>Location: <%= dinner.philosopher.location %></p>
+
       <!-- Add additional dinner information as needed -->
     </div>
   <% end %>
