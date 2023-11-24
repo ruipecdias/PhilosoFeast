@@ -12,7 +12,8 @@ class PhilosophersController < ApplicationController
       @markers = @philosophers.geocoded.map do |philosopher|
         {
           lat: philosopher.latitude,
-          lng: philosopher.longitude
+          lng: philosopher.longitude,
+          url: philosopher_path(philosopher)
 
         }
       end
