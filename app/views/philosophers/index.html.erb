@@ -1,9 +1,9 @@
 <%= form_with url: philosophers_path, method: :get, class: "search-form m-3",
-style: "background-color: #f5f5f5; border: 1px solid #ddd; padding: 5px; border-radius: 10px; width: 100px;" do %>
-  <%= text_field_tag :query, params[:query], placeholder: "Search by name",
-  class: "search-input", style: "padding: 5px; border: none; outline: none; width: 21.5%;" %>
-  <%= submit_tag "Search", class: "search-button",
-  style: "background-color: #333; color: white; padding: 5px 10px; border: none; border-radius: 5px;" %>
+style: "background-color: #f5f5f5; padding: 5px; width: 100px;" do %>
+  <%= text_field_tag :query, params[:query], placeholder: "Type a name",
+  class: "search-input shadow sm bg-body-tertiary rounded-4", style: "padding: 10px; border: 1px solid #868686; outline: none; width: 21.5%;" %>
+  <%= submit_tag "Search", class: "search-button shadow sm",
+  style: "background-color: #333; color: white; padding: 10px 20px; border: none; border-radius: 15px;" %>
 <% end %>
 <div class="content">
 
