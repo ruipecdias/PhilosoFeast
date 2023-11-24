@@ -91,3 +91,41 @@ a {
   color: rgb(95, 95, 95);
   text-decoration: none;
 }
+
+.myavatar {
+  height: 200px;
+  width: 200px;
+  background-size: cover;
+}
+
+.hisavatar {
+  height: 300px;
+  width: 300px;
+  background-size: cover;
+}
+
+h3 {
+  font-family: "Anek Malayalam', sans-serif";
+}
+
+.dinner {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.nodinner {
+  flex-direction: row;
+  background-image: url("sad.png");
+  background-size: cover; /* Set the background size to cover the container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent the background image from repeating */
+  width: 960px;
+  height: 540px;
+  margin: 0;
+  border-radius: 10px;
+}
+
+.hola {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  padding: 20px;
+  background-color: #dfc8a6;
+}
