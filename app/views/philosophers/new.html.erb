@@ -1,21 +1,24 @@
-<h2>Register as a Philosopher</h2>
-
-<%= simple_form_for @philosopher, url: philosophers_path do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :age, required: true, input_html: { min: 0 } %>
-    <%= f.input :bio, as: :text, required: true %>
-    <%= f.input :price_per_hour, required: true, input_html: { type: 'number', step: 'any' } %>
-    <%= f.input :preferred_topic, required: true %>
-    <%= f.input :philosophical_focus, required: true %>
-    <%= f.input :dress_code, required: true %>
-    <%= f.input :nationality, required: true %>
-    <%= f.input :communication_style, required: true %>
-    <!-- Add other philosopher specific fields as required -->
+<div class='d-flex justify-content-center'>
+  <div class='signup-card bg-white col-5 p-5 m-4'>
+  <h4>Register as a Philosopher</h4>
+  <%= simple_form_for @philosopher, url: philosophers_path do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs">
+      <%= f.input :age, required: true, input_html: { min: 0 } %>
+      <%= f.input :location, required: true %>
+      <%= f.input :bio, as: :text, required: true %>
+      <%= f.input :price_per_hour, required: true, input_html: { type: 'number', step: 'any' } %>
+      <%= f.input :preferred_topic, required: true %>
+      <%= f.input :philosophical_focus, required: true %>
+      <%= f.input :dress_code, required: true %>
+      <%= f.input :nationality, required: true %>
+      <%= f.input :communication_style, required: true %>
+      <!-- Add other philosopher specific fields as required -->
+    </div>
+    
+    <div class="form-actions d-flex justify-content-center">
+      <%= f.button :submit, "Register as Philosopher", class: "btn btn-dark text-white rounded-4" %>
+    </div>
+  <% end %>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Register as Philosopher", class: "btn btn-primary" %>
-  </div>
-<% end %>
+</div>

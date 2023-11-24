@@ -1,5 +1,6 @@
-<div class="philosopher-name">
-  <h4><%= @philosopher.user.username %></h4>
+<div class="philosopher-name d-flex justify-content-start">
+  <button onclick="window.location.href='<%= philosophers_path %>'" class="btn btn-transparent mr-2"><i class="fa-solid fa-chevron-left" style="color: #000000;"></i></button>
+<h4><%= @philosopher.user.username %></h4>
 </div>
 <div class="philosopher-flex">
   <div class="m-3 rounded-4 philosopher-avatar-big" style="background-image: url('<%= cl_image_path(@philosopher.user.photo.key, width: 400) %>')"></div>
@@ -19,36 +20,37 @@
       </p>
     </div>
 
-    <div data-controller="toggle" class="mt-5 d-flex justify-content-between">
-      <button onclick="window.location.href='<%= philosophers_path %>'" class="btn btn-light rounded-4">Back to the List</button>
-      <button data-action="click->toggle#fire" class="btn btn-dark rounded-4">Book a dinner with <%= @philosopher.user.username %></button>
-       <div data-toggle-target="toggleableElement", class="d-none">
-        <%= simple_form_for [@philosopher, @dinner] do |f| %>
-          <div data-controller="priceupdate">
-            <%= f.input :date, as: :string %>
-            <%= f.input :credit_card %>
-            <%= f.input :length, collection: 1..5, label: 'Dinner duration (hours)', input_html: { id: 'length_input', data: {action: "change->priceupdate#newPrice"} }  %>
-           <%= f.button :submit, "Confirm Booking", class: "custom-button" %>
-            <p>Total Price for Dinner: <span id="total_price" data-priceupdate-target="totalPrice"><%= @philosopher.price_per_hour %></span></p>
-          </div>
-        <% end %>
-       </div>
-    </div>
+<div data-controller="toggle" class="mt-5">
+  <button data-action="click->toggle#fire" class="btn btn-dark rounded-4 p-3">Book a dinner with <%= @philosopher.user.username %></button>
+  <div data-toggle-target="toggleableElement" class="d-none">
+    <%= simple_form_for [@philosopher, @dinner] do |f| %>
+      <div data-controller="priceupdate">
+      <div class="m-5">
+        <%= f.input :date, as: :string %>
+        <%= f.input :credit_card %>
+        <%= f.input :length, collection: 1..5, label: 'Dinner duration (hours)', input_html: { id: 'length_input', data: { action: "change->priceupdate#newPrice" } } %><br>
+        <p><strong>Total Price for Dinner:</strong> <span id="total_price" data-priceupdate-target="totalPrice"><%= @philosopher.price_per_hour %></span></p>
+        <%= f.button :submit, "Confirm Booking", class: "btn btn-dark rounded-4 p-3" %>
+      </div>
+      </div>
+      <% end %>
+  </div>
+</div>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function() {
-        var pricePerHour = <%= @philosopher.price_per_hour.to_json %>;
-        var lengthInput = document.getElementById("length_input");
-        var totalPriceDisplay = document.getElementById("total_price");
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    var pricePerHour = <%= @philosopher.price_per_hour.to_json %>;
+    var lengthInput = document.getElementById("length_input");
+    var totalPriceDisplay = document.getElementById("total_price");
 
-        lengthInput.addEventListener("change", function() {
-          var length = this.value;
-          var totalPrice = pricePerHour * length;
-          totalPriceDisplay.textContent = totalPrice
-        });
-      });
-    </script>
-    </div>
+    lengthInput.addEventListener("change", function() {
+      var length = this.value;
+      var totalPrice = pricePerHour * length;
+      totalPriceDisplay.textContent = totalPrice;
+    });
+  });
+</script>
+</div>
 
   <div class="map m-3 rounded-4" style="width: 30%;"
 
@@ -57,4 +59,3 @@
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
 </div>
-
