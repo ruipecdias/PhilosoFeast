@@ -59,7 +59,7 @@ philosopher.user.save!
 puts "Adding philosopher..."
 philosopher = Philosopher.create!(
   age: 2570,
-  location: "R. Alexandre Herculano 7C, 1500-005 Lisboa",
+  location: "Rua Alexandre Herculano 7C, 1150-005 Lisboa",
   availability: "5 pm - 9 pm",
   bio: "Confucius, the wise teacher, spreading wisdom and harmony. Join me on the path
   of virtue, and let's explore the beauty of life together.",
@@ -79,7 +79,7 @@ philosopher.user.save!
 puts "Adding philosopher..."
 philosopher = Philosopher.create!(
   age: 756,
-  location: "Av. Fontes Pereira de Melo 31, 1050-117 Lisboa",
+  location: "Av. Fontes Pereira de Melo 33, 1050-217 Lisboa",
   availability: "7 pm - 11 pm",
   bio: "Dante, the poet of the divine comedy, wandering between realms. Embark on an
   allegorical journey with me through the circles of existence.",
@@ -160,7 +160,7 @@ philosopher.user.save!
 puts "Adding philosopher..."
 philosopher = Philosopher.create!(
   age: 250,
-  location: "Av. Duque de Ávila 11-13, 1000-138 Lisboa",
+  location: "Av. Duque de Ávila 19, 1000-138 Lisboa",
   availability: "5 pm - 9 pm",
   bio: "Hegel, the dialectician, unraveling the intricacies of history and thought. Embark on
   a philosophical journey through the evolution of ideas and the absolute spirit.",
@@ -180,7 +180,7 @@ philosopher.user.save!
 puts "Adding philosopher..."
 philosopher = Philosopher.create!(
   age: 292,
-  location: "R. São José 168, 1150-326 Lisboa",
+  location: "R. São José 134, 1150-325 Lisboa",
   availability: "7 pm - 11 pm",
   bio: "Immanuel Kant, the philosopher of reason and duty, exploring the foundations of
   morality. Join me in the examination of the categorical imperative and the nature of
@@ -201,7 +201,7 @@ philosopher.user.save!
 puts "Adding philosopher..."
 philosopher = Philosopher.create!(
   age: 2604,
-  location: "R. Luciano Cordeiro 65, 1150-341 Lisboa",
+  location: "R. Luciano Cordeiro 67, 1150-341 Lisboa",
   availability: "6 pm - 10 pm",
   bio: "Lao Tse, the ancient sage, delving into the wisdom of Taoism. Join me in exploring
   the natural way of life and the harmony of the Tao.",
@@ -221,7 +221,7 @@ philosopher.user.save!
 puts "Adding philosopher..."
 philosopher = Philosopher.create!(
   age: 370,
-  location: "Av. Alm. Reis 1 H, 1150-007 Lisbo",
+  location: "Av. Alm. Reis 1 H, 1150-007 Lisboa",
   availability: "7 pm - 9 pm",
   bio: "John Locke, the empiricist philosopher, championing individual rights and the social
   contract. Join me in exploring the founda=ons of liberalism and the limits of government
@@ -262,7 +262,7 @@ philosopher.user.save!
 puts "Adding philosopher..."
 philosopher = Philosopher.create!(
   age: 204,
-  location: "Av. Dom Carlos I 17-25, 1200-000 Lisboa",
+  location: "Av. Dom Carlos I 17-25, 1200-646 Lisboa",
   availability: "6 pm - 10 pm",
   bio: "Karl Marx, the revolutionary thinker, unraveling the dynamics of capitalism and
   class struggle. Join me in exploring the path to a classless society and the critique of
@@ -283,7 +283,7 @@ philosopher.user.save!
 puts "Adding philosopher..."
 philosopher = Philosopher.create!(
   age: 178,
-  location: "R. Alexandre Herculano 7C, 1500-005 Lisboa",
+  location: "R. Latino Coelho 69A, 1050-132 Lisboa",
   availability: "5 pm - 9 pm",
   bio: "Friedrich Nietzsche, the philosopher of the will to power, challenging conventional
   morality. Join me in exploring the eternal recurrence and the concept of the
