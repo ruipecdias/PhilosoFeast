@@ -43,6 +43,7 @@ class PhilosophersController < ApplicationController
 
       if @philosopher.save!
         redirect_to @philosopher, notice: 'Philosopher was successfully created.'
+        current_user.update(philosopher: true)
       else
         render :new
       end
