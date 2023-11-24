@@ -24,7 +24,8 @@ class PhilosophersController < ApplicationController
       @philosopher = Philosopher.find(params[:id])
         @marker = [{
           lat: @philosopher.latitude,
-          lng: @philosopher.longitude
+          lng: @philosopher.longitude,
+          info_window_html: render_to_string(partial: "info_window", locals: {philosopher: @philosopher})
         }]
       @dinner = Dinner.new
     end
