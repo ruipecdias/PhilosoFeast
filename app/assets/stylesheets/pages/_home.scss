@@ -19,9 +19,18 @@ body {
   background-repeat: no-repeat; /* Prevent the background image from repeating */
 }
 
-.login-signin-page {
+.login-page {
   height: 100vh;
   padding-top: 100px;
+  background-image: url("tavern.png");
+  background-size: cover; /* Set the background size to cover the container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent the background image from repeating */
+}
+
+.signin-page {
+  height: 100vh;
+  padding-top: 50px;
   background-image: url("tavern.png");
   background-size: cover; /* Set the background size to cover the container */
   background-position: center; /* Center the background image */
