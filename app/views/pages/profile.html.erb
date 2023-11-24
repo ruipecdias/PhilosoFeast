@@ -6,7 +6,7 @@
     <div class="m-3 rounded-circle myavatar align-self-center" style="background-image: url('<%= cl_image_path(@current_user.photo.key) %>')"></div>
       <div class="dinner-info align-self-center text-center">
       <p class="fs-5"><strong><em>You have a dinner with <%= dinner.philosopher.user.username %>!</em></strong></p>
-      <p class="fs-5">📅 <%= dinner.date %></p>
+      <p class="fs-5">📅 <%= dinner.date.to_date %></p>
       <p class="fs-5">🕰️ <%= dinner.length %>h</p>
       <p class="fs-5">📍<%= dinner.philosopher.location %></p>
       </div>
