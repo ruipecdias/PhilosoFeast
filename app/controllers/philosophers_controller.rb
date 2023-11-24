@@ -13,8 +13,8 @@ class PhilosophersController < ApplicationController
         {
           lat: philosopher.latitude,
           lng: philosopher.longitude,
-          url: philosopher_path(philosopher)
-
+          url: philosopher_path(philosopher),
+          info_window_html: render_to_string(partial: "info_window", locals: {philosopher: philosopher})
         }
       end
     end

@@ -21,24 +21,42 @@
     </div>
 
 <div data-controller="toggle" class="mt-5">
-  <button data-action="click->toggle#fire" class="btn btn-dark rounded-4 p-3">Book a dinner with <%= @philosopher.user.username %></button>
-  <div data-toggle-target="toggleableElement" class="d-none">
-    <%= simple_form_for [@philosopher, @dinner] do |f| %>
-      <div data-controller="priceupdate">
-      <div class="m-5">
-        <%= f.input :date, as: :string %>
-        <%= f.input :credit_card %>
-        <%= f.input :length, collection: 1..5, label: 'Dinner duration (hours)', input_html: { id: 'length_input', data: { action: "change->priceupdate#newPrice" } } %><br>
-        <p><strong>Total Price for Dinner:</strong> <span id="total_price" data-priceupdate-target="totalPrice"><%= @philosopher.price_per_hour %></span></p>
-        <%= f.button :submit, "Confirm Booking", class: "btn btn-dark rounded-4 p-3" %>
+  <!-- Button trigger modal -->
+  <button type="button" data-bs-toggle="modal" data-bs-target="#bookDinner" class="btn btn-dark rounded-4 p-3">
+    Book a dinner with <%= @philosopher.user.username %>
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="bookDinner" tabindex="-1" aria-labelledby="bookDinnerLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content bg-white">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 text-black" id="bookDinnerLabel">Let's meet!</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <%= simple_form_for [@philosopher, @dinner] do |f| %>
+              <div data-controller="priceupdate">
+                <div class="m-5">
+                  <%= f.input :date, as: :string, input_html: { data: {controller: "datepicker"} } %>
+                  <%= f.input :credit_card %>
+                  <%= f.input :length, collection: 1..5, label: 'Dinner duration (hours)', input_html: { id: 'length_input', data: { action: "change->priceupdate#newPrice" } } %><br>
+                  <p><strong>Total Price for Dinner:</strong> <span id="total_price" data-priceupdate-target="totalPrice"><%= @philosopher.price_per_hour %></span>€</p>
+                  <%= f.button :submit, "Confirm Booking", class: "btn btn-dark rounded-4 p-3" %>
+                </div>
+              </div>
+            <% end %>
+        </div>
       </div>
-      </div>
-      <% end %>
+    </div>
   </div>
+
+
+
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function() {
     var pricePerHour = <%= @philosopher.price_per_hour.to_json %>;
     var lengthInput = document.getElementById("length_input");
     var totalPriceDisplay = document.getElementById("total_price");
