@@ -1,6 +1,6 @@
 <!-- profile.html.erb -->
 
-<!-- Display user's name at the top -->
+<!-- Display user's name and small avatar at the top -->
 <h1>Welcome, <%= @user.username %>!</h1>
 
 <!-- Display user's dinners -->
@@ -8,11 +8,13 @@
   <h2>Your Dinners:</h2>
   <% @user.dinners.each do |dinner| %>
     <div class="dinner">
+      <!-- Display larger image of the philosopher -->
+      <%= cl_image_tag current_user.photo.key, class: "small-avatar", alt: "User avatar" %>
+     <%= cl_image_tag dinner.philosopher.user.photo.key, class: "w-50 img", alt: "Philosopher image" %>
       <p>Philosopher's name: <%= dinner.philosopher.user.username %></p>
       <p>Date: <%= dinner.date %></p>
       <p>Duration: <%= dinner.length %>h</p>
-     <p>Location: <%= dinner.philosopher.location %></p>
-
+      <p>Location: <%= dinner.philosopher.location %></p>
       <!-- Add additional dinner information as needed -->
     </div>
   <% end %>
