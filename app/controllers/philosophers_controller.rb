@@ -13,7 +13,7 @@ class PhilosophersController < ApplicationController
         {
           lat: philosopher.latitude,
           lng: philosopher.longitude
-          
+
         }
       end
     end
@@ -41,7 +41,7 @@ class PhilosophersController < ApplicationController
     def create
       @philosopher = current_user.philosophers.build(philosopher_params)
 
-      if @philosopher.save
+      if @philosopher.save!
         redirect_to @philosopher, notice: 'Philosopher was successfully created.'
       else
         render :new
