@@ -12,7 +12,8 @@ class PhilosophersController < ApplicationController
       @markers = @philosophers.geocoded.map do |philosopher|
         {
           lat: philosopher.latitude,
-          lng: philosopher.longitude
+          lng: philosopher.longitude,
+          url: philosopher_path(philosopher)
 
         }
       end
@@ -43,6 +44,7 @@ class PhilosophersController < ApplicationController
 
       if @philosopher.save!
         redirect_to @philosopher, notice: 'Philosopher was successfully created.'
+        current_user.update(philosopher: true)
       else
         render :new
       end

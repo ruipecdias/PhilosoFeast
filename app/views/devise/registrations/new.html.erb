@@ -29,36 +29,6 @@
       <%= f.error_notification %>
     <h4>Sign up</h4>
 
-
-      <div class="form-inputs">
-        <%= f.input :username,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "username" }%>
-        <%= f.input :email,
-                    required: true,
-                    autofocus: true,
-                    input_html: { autocomplete: "email" }%>
-        <%= f.input :password,
-                    required: true,
-                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                    input_html: { autocomplete: "new-password" } %>
-        <%= f.input :password_confirmation,
-                    required: true,
-                    input_html: { autocomplete: "new-password" } %>
-        <%= f.input :photo,
-                    as: :file,
-                    required: true,
-                    label: 'Upload Profile Picture',
-                    input_html: { autocomplete: "off" } %>
-        <%= f.input :philosopher,
-                    as: :select,
-                    collection: [['YES', true], ['NO', false]],
-                    label: 'Are you a philosopher?',
-                    prompt: 'Select an option',
-                    required: true,
-                    input_html: { autocomplete: "Off" } %>
-      </div>
     <div class="d-flex justify-content-center">
       <div class="form-actions">
       <%= f.button :submit, "Sign up", class: "btn btn-dark text-white rounded-4" %>
