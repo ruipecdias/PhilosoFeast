@@ -10,11 +10,8 @@ export default class extends Controller {
       container: this.element,
       style: 'mapbox://styles/sixiao01/clpb3mkhx006v01pj4oy226w3'  // Or any other style
     })
-
     this.#addMarkersToMap()
     this.#fitMapToMarkers()
-
-    console.log(this)
   }
 
   #fitMapToMarkers() {
@@ -25,14 +22,11 @@ export default class extends Controller {
 
   #addMarkersToMap() {
     this.markersValue.forEach((marker) => {
-      const el = document.createElement('div')
-      el.addEventListener('click', () => {
-        window.location.href = marker.url
-      })
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window_html) // Add this
       new mapboxgl.Marker()
-        .setLngLat([ marker.lng, marker.lat ])
-        .setPopup(new mapboxgl.Popup().setHTML(marker.infoWindow))
-        .addTo(this.map)
+      .setLngLat([ marker.lng, marker.lat ])
+      .setPopup(popup) // Add this
+      .addTo(this.map)
     })
   }
 }
