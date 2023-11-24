@@ -53,11 +53,6 @@ h5 {
   border-radius: 10px;
 }
 
-.login {
-  background-image: none;
-  background-color: #F8F0E5;
-}
-
 .custom-button {
   background-color: #007bff;
   color: #fff;
@@ -69,4 +64,21 @@ h5 {
 
 .custom-button:hover {
   background-color: #0056b3;
+}
+
+.signup-card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.mysignup {
+  flex-direction: row;
+  background-image: url("sign-up.png");
+  background-size: cover; /* Set the background size to cover the container */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent the background image from repeating */
+}
+
+a {
+  color: rgb(95, 95, 95);
+  text-decoration: none;
 }
