@@ -7,11 +7,13 @@ class DinnersController < ApplicationController
   end
 
   def create
+
     @philosopher = Philosopher.find(params[:philosopher_id])
     @dinner = Dinner.new(dinner_params)
     @dinner.philosopher = @philosopher
+    @dinner.user = current_user
     if @dinner.save
-      redirect_to dinner_path(@dinner)
+      redirect_to profile_path
     else
       render :new, status: :unprocessable_entity
     end

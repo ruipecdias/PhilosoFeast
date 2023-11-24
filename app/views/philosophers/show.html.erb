@@ -28,7 +28,7 @@
             <%= f.input :date, as: :string %>
             <%= f.input :credit_card %>
             <%= f.input :length, collection: 1..5, label: 'Dinner duration (hours)', input_html: { id: 'length_input', data: {action: "change->priceupdate#newPrice"} }  %>
-            <%= f.button :submit, "Confirm Booking", class: "custom-button" %>
+           <%= f.button :submit, "Confirm Booking", class: "custom-button" %>
             <p>Total Price for Dinner: <span id="total_price" data-priceupdate-target="totalPrice"><%= @philosopher.price_per_hour %></span></p>
           </div>
         <% end %>
