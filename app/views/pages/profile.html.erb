@@ -1,8 +1,8 @@
 <div class="profile m-4">
 <% if @user.dinners.any? %>
-  <p class="fs-5">Your Dinners:</p>
+  <h4>Your Dinners:</h4><br>
   <% @user.dinners.each do |dinner| %>
-    <div class="dinner bg-white d-flex justify-content-around">
+    <div class="dinner mb-4 d-flex justify-content-around rounded-4">
     <div class="m-3 rounded-circle myavatar align-self-center" style="background-image: url('<%= cl_image_path(@current_user.photo.key) %>')"></div>
       <div class="dinner-info align-self-center text-center">
       <p class="fs-5"><strong><em>You have a dinner with <%= dinner.philosopher.user.username %>!</em></strong></p>
@@ -13,11 +13,12 @@
     <div class="m-3 rounded-4 hisavatar" style="background-image: url('<%= cl_image_path(dinner.philosopher.user.photo.key) %>')"></div>
     </div>
   <% end %>
+      <div class="d-flex justify-content-end"><%= link_to 'Book another dinner!', philosophers_path, class: 'mybutton' %></div>
 <% else %>
 <div class="d-flex justify-content-center">
-<div class="hola rounded-4">
+
 <div class="flex-column">
-<div class="nodinner text-center text-white">
+<div class="nodinner text-center text-light">
   <br><p class="fs-5">You don't have any dinner booked 😔</p>
 </div>
 <br>
@@ -25,7 +26,6 @@
   <%= link_to 'Book a dinner with a philosopher!', philosophers_path, class: 'mybutton' %>
   </div>
 <% end %>
-</div>
 </div>
 </div>
 </div>

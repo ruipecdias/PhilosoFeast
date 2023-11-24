@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 body {
-  background-color: #f1f1f1;
+  background-color: #dfc8a6;
   min-height: 100vh;
   margin: 0;
 }
@@ -11,7 +11,7 @@ body {
 
 .landing-page {
   height: 100vh;
-  padding-top: 400px;
+  padding-top: 350px;
   flex-direction: row;
   background-image: url("philosopher.png");
   background-size: cover; /* Set the background size to cover the container */
@@ -110,6 +110,7 @@ h3 {
 
 .dinner {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  background-color: #f1f1f1;
 }
 
 .nodinner {
@@ -127,5 +128,5 @@ h3 {
 .hola {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   padding: 20px;
-  background-color: #dfc8a6;
+  background-color: #f1f1f1;
 }
