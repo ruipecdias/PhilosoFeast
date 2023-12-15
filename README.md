@@ -1,7 +1,7 @@
 # PhilosoFeast 🍽️📚🤔
 
 ## Overview 📋
-PhilosoFeast, a web application and an Airbnb-inspired platform, invites users to embark on a unique intellectual and gastronomic journey. Here, you can book a thought-provoking dinner with a philosopher in your area. Gain insights into the world of philosophy, customize the length of your dinner, and the price will vary accordingly. As a special touch, users also have the opportunity to register themselves as philosophers.
+PhilosoFeast is a web application, a clone of Airbnb,, invites users to embark on a unique intellectual and gastronomic journey. Here, you can book a thought-provoking dinner with a philosopher in your area. Gain insights into the world of philosophy, customize the length of your dinner, and the price will vary accordingly. As a special touch, users also have the opportunity to register themselves as philosophers.
 
 ## Features ⭐
 - **Dinner Booking:**
